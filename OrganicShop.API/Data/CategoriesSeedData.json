@@ -1,0 +1,22 @@
+[
+    {
+        "Id": "bread",
+        "CategoryName": "Bread"
+    },
+    {
+        "Id": "dairy",
+        "CategoryName": "Dairy"
+    },
+    {
+        "Id": "vegetables",
+        "CategoryName": "Vegetables"
+    },
+    {
+        "Id": "seasonings",
+        "CategoryName": "Seasonings and Spices"
+    },
+    {
+        "Id": "fruits",
+        "CategoryName": "Fruits"
+    }
+]

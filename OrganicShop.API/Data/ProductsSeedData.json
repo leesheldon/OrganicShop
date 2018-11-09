@@ -1,0 +1,192 @@
+[
+    {
+        "Id": "KrqgOLs07ZkbapP4EGi",
+        "Title": "Spinach",
+        "Price": 2.5,
+        "PhotoUrl": "http://www.publicdomainpictures.net/pictures/170000/velka/spinach-leaves-1461774375kTU.jpg",
+        "CategoryId": "vegetables",
+        "DateCreated": "2018-06-04",
+        "LastUpdated": "2018-06-04",
+        "InActive": false
+    },
+    {
+        "Id": "KrrIkDT19XhPgWo0T0A",
+        "Title": "Freshly Baked Bread",
+        "Price": 3,
+        "PhotoUrl": "https://static.pexels.com/photos/2434/bread-food-healthy-breakfast.jpg",
+        "CategoryId": "bread",
+        "DateCreated": "2018-07-04",
+        "LastUpdated": "2018-07-04",
+        "InActive": false
+    },
+    {
+        "Id": "KrvrXbV3rqnFEruaojw",
+        "Title": "Avocado",
+        "Price": 1.75,
+        "PhotoUrl": "https://daily.jstor.org/wp-content/uploads/2017/05/avocado_1050x700.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-06-15",
+        "LastUpdated": "2018-06-15",
+        "InActive": false
+    },
+    {
+        "Id": "KrvrgogC3oac5k83Awt",
+        "Title": "Tomato",
+        "Price": 2.5,
+        "PhotoUrl": "https://static.pexels.com/photos/8390/food-wood-tomatoes.jpg",
+        "CategoryId": "vegetables",
+        "DateCreated": "2018-09-04",
+        "LastUpdated": "2018-09-04",
+        "InActive": false
+    },
+    {
+        "Id": "Krvrt2nkeRw2HCbiGDj",
+        "Title": "Lettuce",
+        "Price": 1,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Lettuce_Mini_Heads_%287331119710%29.jpg",
+        "CategoryId": "vegetables",
+        "DateCreated": "2017-06-04",
+        "LastUpdated": "2017-06-04",
+        "InActive": false
+    },
+    {
+        "Id": "Krvs0ZZBpz5GuM0RfC8",
+        "Title": "Cauliflower",
+        "Price": 1.75,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Cauliflowers_-_20051021.jpg/1280px-Cauliflowers_-_20051021.jpg",
+        "CategoryId": "vegetables",
+        "DateCreated": "2018-02-13",
+        "LastUpdated": "2018-02-13",
+        "InActive": false
+    },
+    {
+        "Id": "Krvs7RuXkSiDZvBZmey",
+        "Title": "Banana",
+        "Price": 1.25,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Bananas.jpg/1024px-Bananas.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-03-25",
+        "LastUpdated": "2018-03-25",
+        "InActive": false
+    },
+    {
+        "Id": "KrvsKZbIdmpo3hJg7G7",
+        "Title": "Orange",
+        "Price": 1.7,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-08-19",
+        "LastUpdated": "2018-08-19",
+        "InActive": false
+    },
+    {
+        "Id": "KrvsRNOgeftEUM3TegF",
+        "Title": "Apple",
+        "Price": 2,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Apple.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-06-04",
+        "LastUpdated": "2018-06-04",
+        "InActive": false
+    },
+    {
+        "Id": "KrvsyCiDXdiZ3yd0PUp",
+        "Title": "Grape",
+        "Price": 2,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/3/36/Kyoho-grape.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-06-04",
+        "LastUpdated": "2018-06-04",
+        "InActive": false
+    },
+    {
+        "Id": "KrvsfKjGc0NCM0prc0I",
+        "Title": "Peach",
+        "Price": 2,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Autumn_Red_peaches.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-10-08",
+        "LastUpdated": "2018-10-08",
+        "InActive": false
+    },
+    {
+        "Id": "KrvuT7GtYfsFvmQfgoj",
+        "Title": "Baguette Bread",
+        "Price": 1.25,
+        "PhotoUrl": "https://static.pexels.com/photos/416607/pexels-photo-416607.jpeg",
+        "CategoryId": "bread",
+        "DateCreated": "2018-10-09",
+        "LastUpdated": "2018-10-09",
+        "InActive": false
+    },
+    {
+        "Id": "KrvsrmX3I1aBo6eFCdx",
+        "Title": "Cinnamon Sticks",
+        "Price": 0.5,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cinnamon-other.jpg",
+        "CategoryId": "seasonings",
+        "DateCreated": "2018-06-14",
+        "LastUpdated": "2018-06-14",
+        "InActive": false
+    },
+    {
+        "Id": "KrvsxvxOmTzMXOSx7iG",
+        "Title": "Saffron",
+        "Price": 3,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/4/48/Saffron_Crop.JPG",
+        "CategoryId": "seasonings",
+        "DateCreated": "2018-07-23",
+        "LastUpdated": "2018-07-23",
+        "InActive": false
+    },
+    {
+        "Id": "Krvt8GknaLT8PgbFob6",
+        "Title": "Ground Turmeric",
+        "Price": 0.75,
+        "PhotoUrl": "http://maxpixel.freegreatpicture.com/static/photo/1x/Seasoning-Powder-Curry-Spice-Ingredient-Turmeric-2344157.jpg",
+        "CategoryId": "seasonings",
+        "DateCreated": "2018-08-27",
+        "LastUpdated": "2018-08-27",
+        "InActive": false        
+    },
+    {
+        "Id": "KrvtXWZvGvgmr0IFbAA",
+        "Title": "Coriander Seeds",
+        "Price": 0.5,
+        "PhotoUrl": "http://maxpixel.freegreatpicture.com/static/photo/1x/Ingredient-Herb-Seasoning-Seeds-Food-Coriander-390015.jpg",
+        "CategoryId": "seasonings",
+        "DateCreated": "2018-07-11",
+        "LastUpdated": "2018-07-11",
+        "InActive": false
+    },
+    {
+        "Id": "KrvtvcpuQyh6dzIkJ3R",
+        "Title": "Lavash Bread",
+        "Price": 1.25,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Fabrication_du_lavash_%C3%A0_Noravank_%286%29.jpg/1280px-Fabrication_du_lavash_%C3%A0_Noravank_%286%29.jpg",
+        "CategoryId": "bread",
+        "DateCreated": "2018-06-12",
+        "LastUpdated": "2018-06-12",
+        "InActive": false
+    },
+    {
+        "Id": "Krvu3aLqmcku0yCnQGr",
+        "Title": "Bagel Bread",
+        "Price": 1,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Bagel-Plain-Alt.jpg",
+        "CategoryId": "bread",
+        "DateCreated": "2018-04-11",
+        "LastUpdated": "2018-04-11",
+        "InActive": false
+    },
+    {
+        "Id": "KrvuHtbkBBZDW0NCwfl",
+        "Title": "Strawberry",
+        "Price": 1.95,
+        "PhotoUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Strawberries.jpg",
+        "CategoryId": "fruits",
+        "DateCreated": "2018-05-22",
+        "LastUpdated": "2018-05-22",
+        "InActive": false
+    }
+]
