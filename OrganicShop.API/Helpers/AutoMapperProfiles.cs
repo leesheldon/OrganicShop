@@ -1,4 +1,6 @@
 using AutoMapper;
+using OrganicShop.API.Dtos;
+using OrganicShop.API.Models;
 
 namespace OrganicShop.API.Helpers
 {
@@ -6,7 +8,22 @@ namespace OrganicShop.API.Helpers
     {
         public AutoMapperProfiles()
         {
+            CreateMap<User, UserForDetailedDto>()
+                .ForMember(dest => dest.Age, opt => {
+                    opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
+                });
             
+            CreateMap<UserForRegisterDto, User>();
+            CreateMap<ProductForCreationDto, Product>().ReverseMap();
+            CreateMap<Product, ProductForReturnDto>();
+            CreateMap<ProductForUpdateDto, Product>();
+            CreateMap<Category, CategoryForReturnDto>();
+            CreateMap<CategoryForSavingDto, Category>();
+            //CreateMap<CartForCreationDto, Cart>();
+            CreateMap<Cart, CartForReturnDto>();
+            // CreateMap<ItemForCreationDto, CartItem>();
+            // CreateMap<ItemForUpdateDto, CartItem>();
+
         }
 
     }
