@@ -1,0 +1,79 @@
+<p>
+  <a [routerLink]="['/admin/products/new']" class="btn btn-primary" >New Product</a>
+</p>
+
+<div class="container mt-3">
+  <div class="row">
+      <form class="form-inline" #form="ngForm" (ngSubmit)="loadAllProducts()" novalidate>
+          <div class="form-group">
+              <label for="minPrice">Price From</label>
+              <input type="number" class="form-control ml-1" style="width: 70px" id="minPrice"
+                  [(ngModel)]="productParams.minPrice" name="minPrice">
+          </div>
+          
+          <div class="form-group px-2">
+              <label for="maxPrice">Price To</label>
+              <input type="number" class="form-control ml-1" style="width: 70px" id="maxPrice" 
+              [(ngModel)]="productParams.maxPrice" name="maxPrice">
+          </div>
+  
+          <div class="form-group px-2">
+              <label for="title">Title</label>
+              <input type="text" class="form-control ml-1" style="width: 150px" id="title" 
+              [(ngModel)]="productParams.title" name="title">
+          </div>            
+          
+          <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button>
+          <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filter</button>
+          
+          <div class="col">
+              <div class="btn-group float-right">
+                  <button type="button" name="orderBy" class="btn btn-success" (click)="loadAllProducts()" 
+                      [(ngModel)]="productParams.orderBy" btnRadio="lastUpdated">Last Update</button>
+                  <button type="button" name="orderBy" class="btn btn-success" (click)="loadAllProducts()" 
+                      [(ngModel)]="productParams.orderBy" btnRadio="createdOn">Newest Products</button>
+              </div>
+          </div>
+      </form>
+  </div>           
+
+  <div class="row mt-3">
+      <table class="table table-striped" [mfData]="products" #mf="mfDataTable" [mfRowsOnPage]="5">
+          <thead>
+              <tr>
+                  <th>
+                      <mfDefaultSorter by="title">Title</mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter by="price">Price</mfDefaultSorter>
+                  </th>
+                  <th>
+                      <mfDefaultSorter by="category">Category</mfDefaultSorter>
+                  </th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let p of mf.data">
+                  <td>{{ p.title }}</td>
+                  <td>{{ p.price }}</td>
+                  <td>
+                      <img class="img-circle rounded-circle mr-1" src="{{p.photoUrl || '../../assets/NoImage.png'}}" alt="{{p.title}}">
+                  </td>
+                  <td>
+                      <a [routerLink]="['/admin/products/', p.id]" >Edit</a>
+                  </td>
+              </tr>
+          </tbody>
+          <tfoot>
+              <tr>
+                  <td colspan="4">
+                      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                  </td>
+              </tr>
+          </tfoot>
+      </table>
+  </div>
+</div>
+
+

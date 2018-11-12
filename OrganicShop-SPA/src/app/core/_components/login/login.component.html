@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div *ngIf="!registerMode" class="text-center">
+    <form #loginForm="ngForm" (ngSubmit)="login()" class="form-inline my-2 my-lg-0 justify-content-center pb-5">    
+      <input [(ngModel)]="model.loginname" name="loginname" class="form-control mr-sm-2" type="text" #varUserName="ngModel" placeholder="User name"
+        required>
+      <input [(ngModel)]="model.password" name="password" class="form-control mr-sm-2" type="password" #varPassword="ngModel" placeholder="Password"
+        required>
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+    </form>
+  </div>
+
+  <div *ngIf="!registerMode" style="text-align: center">
+    <h1>Shop your favor!</h1>
+    <p class="lead">Come on in to view your favorite ones... All you need to do is sign up!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">Register</button>
+      <button class="btn btn-info btn-lg">Learn more</button>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegisterEvt)="cancelRegisterMode($event)"></app-register>
+      </div>
+    </div>
+  </div>
+</div>

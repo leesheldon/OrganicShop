@@ -1,0 +1,67 @@
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <form [formGroup]="productForm" (ngSubmit)="save()">  
+      <div class="form-group">
+        <input type="text" 
+            [ngClass]="{'is-invalid': productForm.get('title').errors && productForm.get('title').touched}"
+            class="form-control" 
+            formControlName="title" 
+            placeholder="Title">
+        <div class="invalid-feedback">Title is required.</div>
+      </div>
+      <div class="form-group">
+        <input type="text" 
+            [ngClass]="{'is-invalid': productForm.get('price').errors && productForm.get('price').touched}"
+            class="form-control" 
+            formControlName="price" 
+            placeholder="Price">          
+        <div class="invalid-feedback" 
+            *ngIf="productForm.get('price').hasError('required') && productForm.get('price').touched">
+            Price is required.
+        </div>
+        <div class="invalid-feedback" 
+            *ngIf="productForm.get('price').hasError('min') && productForm.get('price').touched">
+            Price should be zero or higher.
+        </div>          
+      </div>      
+      <div class="form-group">
+        <select formControlName="category" class="form-control" placeholder="Select Category" 
+            [ngClass]="{'is-invalid': productForm.get('category').errors && productForm.get('category').touched}">
+          <option value=""></option>
+          <option *ngFor="let c of categories" [value]="c.id">{{ c.categoryName }}</option>
+        </select>
+        <div class="invalid-feedback">Category is required.</div>
+      </div>
+      <div class="form-group">
+        <input type="url" 
+            [ngClass]="{'is-invalid': productForm.get('photoUrl').errors && productForm.get('photoUrl').touched}"
+            class="form-control" 
+            formControlName="photoUrl" 
+            placeholder="Image URL">          
+        <div class="invalid-feedback" 
+            *ngIf="productForm.get('photoUrl').hasError('required') && productForm.get('photoUrl').touched">
+            Image URL is required.
+        </div>
+        <div class="invalid-feedback" 
+            *ngIf="productForm.get('photoUrl').hasError('pattern') && productForm.get('photoUrl').touched">
+            Please enter a valid URL.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success mr-2" [disabled]="!productForm.valid">Save</button>
+      <button type="button" (click)="deleteProduct()" class="btn btn-danger" [disabled]="!productId">Delete</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+      <app-product-card [product]="productForm.value" [show-AddToCart]="false"></app-product-card>
+    <!--
+    <div *ngIf="productForm.get('title').valid" class="card" style="width: 18rem;">
+      <img class="card-img-top" [src]="productForm.get('photoUrl').value" *ngIf="productForm.get('photoUrl').valid">
+      <div class="card-body">
+        <h5 class="card-title">{{ productForm.get('title').value }}</h5>
+        <p class="card-text" *ngIf="productForm.get('price').value >= 0">{{ productForm.get('price').value | currency:'USD' }}</p>
+      </div>
+    </div>
+    -->
+  </div>
+</div>

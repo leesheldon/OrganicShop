@@ -1,0 +1,38 @@
+<p>
+  <a [routerLink]="['/admin/categories/new']" class="btn btn-primary" >New Category</a>
+</p>
+
+<div class="form-group">
+  <input type="text" class="form-control ml-1" style="width: 500px" id="categoryName" placeholder="Search ....."
+  [(ngModel)]="categoryParams.categoryName" name="categoryName"
+  (keyup)="loadAllCategories()">
+</div>
+
+<div class="container mt-3">    
+  <div class="row mt-3">
+      <table class="table">
+          <thead>
+              <th>Category Name</th>                
+              <th></th>
+          </thead>
+          <tbody>
+              <tr *ngFor="let c of categories">
+                  <td>{{ c.categoryName }}</td>                    
+                  <td>
+                      <a [routerLink]="['/admin/categories/', c.id]" >Edit</a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" 
+      [totalItems]="pagination.totalItems" 
+      [itemsPerPage]="pagination.itemsPerPage"
+      [(ngModel)]="pagination.currentPage"
+      (pageChanged)="pageChanged($event)"
+      previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"> 
+  </pagination>
+</div>

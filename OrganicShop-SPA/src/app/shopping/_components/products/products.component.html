@@ -1,0 +1,57 @@
+
+<div class="container mt-3">
+  <div class="row sticky-top">
+      <form class="form-inline" #form="ngForm" (ngSubmit)="loadAllProducts()" novalidate>
+          <div class="form-group">
+            <label for="minPrice">Price From</label>
+            <input type="number" class="form-control ml-1" style="width: 70px" id="minPrice" [(ngModel)]="productParams.minPrice" name="minPrice">
+          </div>
+      
+          <div class="form-group px-2">
+            <label for="maxPrice">Price To</label>
+            <input type="number" class="form-control ml-1" style="width: 70px" id="maxPrice" [(ngModel)]="productParams.maxPrice" name="maxPrice">
+          </div>
+      
+          <div class="form-group px-2">
+            <label for="title">Title</label>
+            <input type="text" class="form-control ml-1" style="width: 150px" id="title" [(ngModel)]="productParams.title" name="title">
+          </div>
+      
+          <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button>
+          <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filter</button>
+      
+          <div class="col">
+            <div class="btn-group float-right">
+              <button type="button" name="orderBy" class="btn btn-success" (click)="loadAllProducts()" [(ngModel)]="productParams.orderBy"
+                btnRadio="lastUpdated">Last Update</button>
+              <button type="button" name="orderBy" class="btn btn-success" (click)="loadAllProducts()" [(ngModel)]="productParams.orderBy"
+                btnRadio="createdOn">Newest Products</button>
+            </div>
+          </div>
+      </form>
+  </div>
+  
+
+  <div class="row mt-3">
+    <div class="col-3">
+        <app-filter-by-category [paramCategoryId]="productParams.categoryId"></app-filter-by-category>
+    </div>
+    <div class="col-9">
+      <div class="row">
+        <ng-container *ngFor="let p of products; let i = index">
+          <div class="col">
+            <app-product-card [product]="p"></app-product-card>
+          </div>
+          <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage" [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  </pagination>
+</div>
