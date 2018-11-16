@@ -14,7 +14,7 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  createNewCategory(userId: number, category: any) {
+  createNewCategory(userId, category: any) {
     return this.http.post(this.baseUrl + 'categories/createNewCategory/' + userId, category);
   }
 

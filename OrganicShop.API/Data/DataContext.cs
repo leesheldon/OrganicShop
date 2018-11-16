@@ -18,6 +18,10 @@ namespace OrganicShop.API.Data
         public DbSet<Cart> Carts { get; set; }
 
         public DbSet<CartItem> CartItems { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetails> OrderDetails { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -50,6 +54,21 @@ namespace OrganicShop.API.Data
             builder.Entity<CartItem>()
                 .HasOne(p => p.Product)
                 .WithMany(p => p.CartItems)
+                .HasForeignKey(p => p.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<OrderDetails>()
+                .HasKey(k => new { k.Id });
+
+            builder.Entity<OrderDetails>()
+                .HasOne(p => p.Order)
+                .WithMany(p => p.OrderDetails)
+                .HasForeignKey(p => p.OrderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<OrderDetails>()
+                .HasOne(p => p.Product)
+                .WithMany(p => p.OrderDetails)
                 .HasForeignKey(p => p.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 

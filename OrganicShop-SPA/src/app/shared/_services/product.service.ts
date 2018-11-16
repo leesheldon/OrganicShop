@@ -15,7 +15,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  createNewProduct(userId: number, product: any) {
+  createNewProduct(userId, product: any) {
     return this.http.post(this.baseUrl + 'products/createNewProduct/' + userId, product);
   }
 
@@ -29,6 +29,10 @@ export class ProductService {
 
   getProductById(productId) {    
     return this.http.get<Product>(this.baseUrl + 'products/getProductById/' + productId);
+  }
+  
+  getProductsByCategory(categoryId) {
+    return this.http.get<Product[]>(this.baseUrl + 'products/getProductsByCategory/' + categoryId);
   }
   
   getAllProducts_Admin(productParams?) {

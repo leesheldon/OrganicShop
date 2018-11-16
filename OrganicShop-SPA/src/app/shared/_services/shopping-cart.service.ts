@@ -1,3 +1,4 @@
+import { CartItem } from './../_models/cart-item';
 import { Injectable } from '@angular/core';
 import { Product } from '../_models/product';
 import { environment } from '../../../environments/environment';
@@ -60,9 +61,9 @@ export class ShoppingCartService {
 
     if (!strItem) {
       jsonProduct.qty = 1;
-      qty = 1;
+      qty = 1;      
       localStorage.setItem(product.id, JSON.stringify(jsonProduct));
-      
+
       let totalItems = localStorage.getItem('totalItems');
       if (!totalItems) {
         localStorage.setItem('totalItems', '1');
@@ -85,7 +86,9 @@ export class ShoppingCartService {
         jsonProduct.qty = qty;
 
         localStorage.removeItem(product.id);
-        if (qty > 0) localStorage.setItem(product.id, JSON.stringify(jsonProduct));
+        if (qty > 0) {
+          localStorage.setItem(product.id, JSON.stringify(jsonProduct));          
+        }
         else {
           let totalItems = localStorage.getItem('totalItems');
           this.decreaseTotalItems(totalItems);
@@ -100,14 +103,34 @@ export class ShoppingCartService {
     return this.http.get<Cart>(this.baseUrl + 'carts/getCartById/' + cartId);
   }
 
-  createNewCart() {
+  createNewCart(userId, productId: string) {
     var today = new Date();
+    
     var cartForCreating = {
+      userId: userId,
+      productId: productId,
       dateCreated: today,
       lastUpdated: today
-    };
+    };    
 
     return this.http.post(this.baseUrl + 'carts/createNewCart', cartForCreating);
+  }
+
+  deleteCart(userId, cartId) {
+    return this.http.delete(this.baseUrl + 'carts/' + userId + '/delete/' + cartId);
+  }
+  
+  updateCartItem(userId, cartId, productId, action: string) {
+    var itemForUpdating = {
+      productId: productId,
+      action: action
+    };
+
+    return this.http.put(this.baseUrl + 'carts/' + userId + '/updateItem/' + cartId, itemForUpdating);
+  }
+
+  getItemsByCartId(cartId) {
+    return this.http.get<CartItem[]>(this.baseUrl + 'carts/getItemsByCart/' + cartId);
   }
   
 }

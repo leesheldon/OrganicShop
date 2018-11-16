@@ -23,10 +23,7 @@ export class NavbarComponent implements OnInit {
     private router: Router
   ) {  }
 
-  ngOnInit() {
-    // let strTotalItems = localStorage.getItem('totalItems');
-    // if (!strTotalItems) this.shoppingCartItemsCount = 0;
-    // else this.shoppingCartItemsCount = parseFloat(strTotalItems);
+  ngOnInit() {    
   }
 
   logout() {

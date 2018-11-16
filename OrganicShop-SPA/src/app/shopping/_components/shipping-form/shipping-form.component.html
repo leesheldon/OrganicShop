@@ -1,0 +1,48 @@
+<form [formGroup]="shippingForm" (ngSubmit)="placeOrder()">
+  <div class="form-group">
+    <input type="text" [ngClass]="{'is-invalid': shippingForm.get('username').errors && shippingForm.get('username').touched}"
+      class="form-control" formControlName="username" placeholder="User Name">
+    <div class="invalid-feedback">Please enter user name.</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': shippingForm.get('dateOfReceiving').errors && shippingForm.get('dateOfReceiving').touched}" class="form-control"
+      placeholder="Date of receiving" formControlName="dateOfReceiving" type="text" bsDatepicker [bsConfig]="bsConfig">
+    <div class="invalid-feedback" *ngIf="shippingForm.get('dateOfReceiving').touched && shippingForm.get('dateOfReceiving').hasError('required')">Date of Receiving is required</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" [ngClass]="{'is-invalid': shippingForm.get('addressline1').errors && shippingForm.get('addressline1').touched}"
+      class="form-control" formControlName="addressline1" placeholder="Address Line 1">
+    <div class="invalid-feedback">Please enter Address Line 1.</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" [ngClass]="{'is-invalid': shippingForm.get('addressline2').errors && shippingForm.get('addressline2').touched}"
+      class="form-control" formControlName="addressline2" placeholder="Address Line 2">
+    <div class="invalid-feedback">Please enter Address Line 2.</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': shippingForm.get('city').errors && shippingForm.get('city').touched}" class="form-control"
+      placeholder="City" formControlName="city">
+    <div class="invalid-feedback" *ngIf="shippingForm.get('city').touched && shippingForm.get('city').hasError('required')">City is required</div>
+  </div>
+
+  <div class="form-group">
+    <input [ngClass]="{'is-invalid': shippingForm.get('country').errors && shippingForm.get('country').touched}" class="form-control"
+      placeholder="Country" formControlName="country">
+    <div class="invalid-feedback" *ngIf="shippingForm.get('country').touched && shippingForm.get('country').hasError('required')">Country is required</div>
+  </div>
+
+  <div class="form-group">
+    <textarea class="form-control"
+        placeholder="Comments" formControlName="comments">
+    </textarea>
+  </div>
+
+  <div class="form-group text-center">
+    <button class="btn btn-success" type="submit" [disabled]="!shippingForm.valid">Place Order</button>
+    <button class="btn btn-default" type="button" (click)="cancelPlaceOrder()">Cancel</button>
+  </div>
+</form>

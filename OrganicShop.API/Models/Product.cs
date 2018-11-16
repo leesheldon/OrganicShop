@@ -25,5 +25,7 @@ namespace OrganicShop.API.Models
 
         public ICollection<CartItem> CartItems { get; set; }
         
+        public ICollection<OrderDetails> OrderDetails { get; set; }
+
     }
 }

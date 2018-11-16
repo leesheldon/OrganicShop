@@ -25,6 +25,7 @@ import { ProductsResolver } from './shared/_resolvers/products.resolver';
 import { AdminCategoriesResolver } from './shared/_resolvers/admin-categories.resolver';
 import { ShoppingCartService } from './shared/_services/shopping-cart.service';
 import { appRoutes } from './appRoutes';
+import { OrdersResolver } from './shared/_resolvers/orders.resolver';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -59,7 +60,8 @@ export function tokenGetter() {
     AdminProductsResolver,
     ProductsResolver,
     AdminCategoriesResolver,
-    ShoppingCartService
+    ShoppingCartService,
+    OrdersResolver
   ],
   bootstrap: [AppComponent]
 })

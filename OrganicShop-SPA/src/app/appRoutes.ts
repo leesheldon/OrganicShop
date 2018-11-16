@@ -10,6 +10,11 @@ import { CategoryFormComponent } from "./admin/_components/category-form/categor
 import { AdminCategoriesComponent } from "./admin/_components/admin-categories/admin-categories.component";
 import { AdminCategoriesResolver } from "./shared/_resolvers/admin-categories.resolver";
 import { LoginComponent } from "./core/_components/login/login.component";
+import { ShoppingCartComponent } from "./shopping/_components/shopping-cart/shopping-cart.component";
+import { CheckOutComponent } from "./shopping/_components/check-out/check-out.component";
+import { OrderSuccessComponent } from "./shopping/_components/order-success/order-success.component";
+import { MyOrdersComponent } from "./shopping/_components/my-orders/my-orders.component";
+import { OrdersResolver } from "./shared/_resolvers/orders.resolver";
 
 
 export const appRoutes: Routes = [
@@ -23,13 +28,23 @@ export const appRoutes: Routes = [
         canActivate: [AuthGuard],
         children: [
             { path: 'products', component: ProductsComponent, 
+                data: {roles: ["Admin", "ProductManager", "Customer"]},
                 resolve: {products: ProductsResolver} 
             },
-            // { path: 'shopping-cart', component: ShoppingCartComponent },
+            { path: 'shopping-cart', component: ShoppingCartComponent,
+                data: {roles: ["Admin", "Customer"]}
+            },
             
-            // { path: 'check-out', component: CheckOutComponent },
-            // { path: 'order-success', component: OrderSuccessComponent },
-            // { path: 'my/orders', component: MyOrdersComponent },
+            { path: 'check-out', component: CheckOutComponent,
+                data: {roles: ["Admin", "Customer"]}
+            },
+            { path: 'order-success', component: OrderSuccessComponent,
+                data: {roles: ["Admin", "Customer"]}
+            },
+            { path: 'my-orders', component: MyOrdersComponent,
+                data: {roles: ["Admin", "Customer"]},
+                resolve: { orders: OrdersResolver } 
+            },
                         
             { path: 'admin/products/new', component: ProductFormComponent, 
                 data: {roles: ["Admin", "ProductManager"]},

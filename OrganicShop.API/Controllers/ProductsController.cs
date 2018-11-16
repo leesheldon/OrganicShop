@@ -94,7 +94,7 @@ namespace OrganicShop.API.Controllers
 
             if (await _unitOfWork.Products.SaveAll())
             {
-                CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
+                return CreatedAtAction(nameof(GetProductById), new { id = product.Id }, product);
             }
 
             throw new Exception("Creating product failed on save.");            

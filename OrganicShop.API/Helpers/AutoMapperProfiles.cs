@@ -19,11 +19,11 @@ namespace OrganicShop.API.Helpers
             CreateMap<ProductForUpdateDto, Product>();
             CreateMap<Category, CategoryForReturnDto>();
             CreateMap<CategoryForSavingDto, Category>();
-            //CreateMap<CartForCreationDto, Cart>();
-            CreateMap<Cart, CartForReturnDto>();
-            // CreateMap<ItemForCreationDto, CartItem>();
-            // CreateMap<ItemForUpdateDto, CartItem>();
-
+            CreateMap<CartForCreationDto, Cart>();
+            CreateMap<CartForUpdateDto, Cart>();
+            CreateMap<Cart, CartForReturnDto>();            
+            CreateMap<OrderForCreationDto, Order>();
+            
         }
 
     }

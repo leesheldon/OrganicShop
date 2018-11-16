@@ -1,0 +1,27 @@
+<h1>Orders</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Order Id</th>
+      <th>Order Date</th>
+      <th>Date of Receiving</th>
+      <th></th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.id }}</td>
+      <td>{{ order.orderDate | date}}</td>
+      <td>{{ order.deliveredDate | date}}</td>
+      <td>
+        <a href="#">View</a>
+      </td>
+    </tr>
+  </tbody> 
+</table>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage" [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  </pagination>
+</div>

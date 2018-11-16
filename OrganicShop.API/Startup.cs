@@ -91,8 +91,7 @@ namespace OrganicShop.API
 
             services.AddCors();
             services.AddAutoMapper();
-            services.AddTransient<Seed>();
-            services.AddScoped<IOshopRepository, OshopRepository>();
+            services.AddTransient<Seed>();            
             services.AddScoped<UnitOfWork>();
 
         }

@@ -27,7 +27,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ) {  }
 
   ngOnInit() {
-    this.subscriptionRoute = this.route.data.subscribe(data => {
+    this.subscriptionRoute = this.route.data.subscribe(data => {      
       this.products = data['products'].result;
       this.pagination = data['products'].pagination;
     });

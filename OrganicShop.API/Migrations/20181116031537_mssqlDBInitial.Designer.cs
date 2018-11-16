@@ -10,8 +10,8 @@ using OrganicShop.API.Data;
 namespace OrganicShop.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181109054431_sqlServerInitialSetup")]
-    partial class sqlServerInitialSetup
+    [Migration("20181116031537_mssqlDBInitial")]
+    partial class mssqlDBInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -103,6 +103,8 @@ namespace OrganicShop.API.Migrations
 
                     b.Property<DateTime>("LastUpdated");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("Id");
 
                     b.ToTable("Carts");
@@ -133,6 +135,52 @@ namespace OrganicShop.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("OrganicShop.API.Models.Order", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AddressLine1");
+
+                    b.Property<string>("AddressLine2");
+
+                    b.Property<string>("Comments");
+
+                    b.Property<DateTime>("DeliveredDate");
+
+                    b.Property<DateTime>("OrderDate");
+
+                    b.Property<double>("OrderTotal");
+
+                    b.Property<string>("Status");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("OrganicShop.API.Models.OrderDetails", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("OrderId");
+
+                    b.Property<string>("ProductId");
+
+                    b.Property<double>("Qty");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("OrganicShop.API.Models.Product", b =>
@@ -304,6 +352,19 @@ namespace OrganicShop.API.Migrations
 
                     b.HasOne("OrganicShop.API.Models.Product", "Product")
                         .WithMany("CartItems")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("OrganicShop.API.Models.OrderDetails", b =>
+                {
+                    b.HasOne("OrganicShop.API.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("OrganicShop.API.Models.Product", "Product")
+                        .WithMany("OrderDetails")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Restrict);
                 });

@@ -73,4 +73,36 @@ export class CategoryFormComponent implements OnInit {
     }
   }
 
+  save() {
+    if (this.categoryForm.valid) {
+      var val = Object.assign({}, this.categoryForm.value);
+      var categoryForSaving = {
+        categoryName: val.categoryName
+      };
+
+      if (this.categoryId) {
+        this.categoryService.updateCategory(this.authService.decodedToken.nameid, this.categoryId, categoryForSaving)
+          .subscribe(data => {
+            this.alertify.successMsg('Updating category is successful.');
+          }, error => {
+            this.alertify.errorMsg(error);
+          }, () => {
+            this.categoryForm.reset();
+            this.router.navigate(['/admin/categories']);
+          });
+      }
+      else {        
+        this.categoryService.createNewCategory(this.authService.decodedToken.nameid, categoryForSaving)
+          .subscribe(data => {
+            this.alertify.successMsg('Creating new category is successful.');            
+          }, error => {
+            this.alertify.errorMsg(error);
+          }, () => {
+            this.categoryForm.reset();
+            this.router.navigate(['/admin/categories']);
+          });
+      }
+    }
+  }
+  
 }
